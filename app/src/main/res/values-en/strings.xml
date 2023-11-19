@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Pokedex Friadenrich</string>
+    <string name="ver_mas">View entry</string>
+    <string name="aniadido">Pokemon added correctly</string>
+    <string name="max_limit">The team is full! (max = 6)</string>
+    <string name="agregar_equipo">Add to the team!</string>
+    <string name="confirm_edit">Confirm new nickname</string>
+    <string name="altura">HT </string>
+    <string name="peso">WT </string>
+    <string name="numero">No. </string>
+    <string name="tipo">Type: </string>
+    <string name="modificar">Change nickname</string>
+    <string name="remover">Remove</string>
+</resources>
