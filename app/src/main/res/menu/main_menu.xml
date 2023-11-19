@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 <item
     app:showAsAction="collapseActionView"
-    android:title="PASAR A STRING"
+    android:title="@string/ver_equipo"
     android:id="@+id/menu_equipo"
     ></item>
 </menu>
