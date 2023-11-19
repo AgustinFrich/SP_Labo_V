@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".EntryActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="450px"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="450px"
+                android:layout_height="350px"
+                android:id="@+id/entry_image"
+                ></ImageView>
+            <TextView
+                android:fontFamily="@font/minecraft"
+                android:layout_width="450px"
+                android:layout_height="100px"
+                android:id="@+id/entry_id"
+                android:textSize="60px"
+                android:gravity="center"
+                ></TextView>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="450px"
+            android:orientation="vertical">
+
+            <TextView
+                android:textColor="@android:color/black"
+                android:fontFamily="@font/minecraft"
+                android:layout_width="wrap_content"
+                android:layout_height="200px"
+                android:id="@+id/entry_name"
+                android:maxLines="1"
+                android:textSize="90px"
+                android:textScaleX="0.9"
+                android:gravity="center_vertical"></TextView>
+            <TextView
+                android:fontFamily="@font/minecraft"
+                android:layout_width="wrap_content"
+                android:layout_height="125px"
+                android:id="@+id/entry_height"
+                android:textSize="90px"
+                android:gravity="center_vertical"></TextView>
+
+            <TextView
+                android:fontFamily="@font/minecraft"
+                android:layout_width="wrap_content"
+                android:layout_height="125px"
+                android:id="@+id/entry_weight"
+                android:textSize="90px"
+                android:gravity="center_vertical"></TextView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10px"
+        android:background="@android:color/black"
+        android:layout_marginBottom="50px"
+        android:layout_marginTop="50px"
+        ></View>
+
+    <TextView
+        android:fontFamily="@font/minecraft"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/entry_type"
+        android:gravity="center_horizontal"
+        android:textSize="70px"
+        ></TextView>
+
+<Button
+    android:layout_margin="200px"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:id="@+id/entry_btn"
+    android:text="Agregar al equipo">
+
+</Button>
+</LinearLayout>

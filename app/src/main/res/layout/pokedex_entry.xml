@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="300px"
+    android:layout_margin="20px"
+    android:background="#09d">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_marginTop="30px"
+            android:fontFamily="@font/minecraft"
+            android:layout_width="match_parent"
+            android:layout_height="150px"
+            android:textSize="100px"
+            android:layout_marginLeft="20px"
+            android:id="@+id/rv_nombre"
+            android:textColor="@android:color/black"
+
+            ></TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_marginLeft="20px"
+                android:layout_height="100px"
+                android:id="@+id/rv_tipo"
+                android:textSize="60px"
+                android:layout_weight="0.5"></TextView>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/ver_mas"
+                android:id="@+id/rv_btn_info"
+                android:layout_marginLeft="20px"
+                android:layout_marginRight="20px"
+                android:layout_gravity="end"
+                android:gravity="end"
+                android:layout_weight="0.5"
+                >
+            </Button>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
