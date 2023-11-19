@@ -89,7 +89,7 @@
     android:layout_height="wrap_content"
     android:gravity="center"
     android:id="@+id/entry_btn"
-    android:text="Agregar al equipo">
+    android:text="@string/agregar_equipo">
 
 </Button>
 </LinearLayout>

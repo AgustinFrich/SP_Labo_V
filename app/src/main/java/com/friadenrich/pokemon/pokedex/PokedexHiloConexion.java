@@ -26,7 +26,7 @@ public class PokedexHiloConexion extends Thread {
         try {
             PokemonApiConection con = new PokemonApiConection();
             String respuesta = con.obtenerString(ruta);
-            Log.d("PKMN", respuesta);
+
             JSONObject obj = new JSONObject(respuesta);
             JSONArray arr =  obj.getJSONArray("results");
 

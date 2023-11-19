@@ -65,7 +65,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:id="@+id/edit_btn_save"
-        android:text="Agregar al equipo">
+        android:text="@string/confirm_edit">
 
     </Button>
 </LinearLayout>

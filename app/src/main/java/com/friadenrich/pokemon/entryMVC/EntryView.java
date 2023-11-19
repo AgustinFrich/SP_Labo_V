@@ -33,10 +33,10 @@ public class EntryView {
         tv_type = this.ac.findViewById(R.id.entry_type);
 
         tv_nombre.setText(pkmn.name.toUpperCase());
-        tv_id.setText("No. " + pkmn.id);
-        tv_weight.setText("WT " + pkmn.weight / 10 + "kg");
-        tv_height.setText("HT " + pkmn.height / 10 + "m");
-        tv_type.setText("Type: " + pkmn.type.toUpperCase());
+        tv_id.setText(ac.getString(R.string.numero) + pkmn.id);
+        tv_weight.setText(ac.getString(R.string.peso) + pkmn.weight / 10 + "kg");
+        tv_height.setText(ac.getString(R.string.altura) +  pkmn.height / 10 + "m");
+        tv_type.setText(ac.getString(R.string.tipo) + pkmn.type.toUpperCase());
 
         iv_img.setImageBitmap(BitmapFactory.decodeByteArray(pkmn.getSprite(), 0, pkmn.getSprite().length));
 

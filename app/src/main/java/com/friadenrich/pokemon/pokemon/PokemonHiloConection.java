@@ -6,6 +6,7 @@ import android.os.Message;
 import com.friadenrich.pokemon.api.PokemonApiConection;
 import com.friadenrich.pokemon.model.Pokemon;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class PokemonHiloConection extends Thread {
@@ -34,9 +35,8 @@ public class PokemonHiloConection extends Thread {
             message.obj = pkmn;
 
             handler.sendMessage(message);
-
-        } catch (Exception e) {
-
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 }

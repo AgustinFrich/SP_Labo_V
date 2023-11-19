@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pokedex Friadenrich</string>
+    <string name="ver_mas">Ver entrada</string>
+    <string name="aniadido">Pokemon añadido correctamente</string>
+    <string name="max_limit">¡El equipo está lleno! (maximo = 6)</string>
+    <string name="agregar_equipo">¡Añadir al equipo!</string>
+    <string name="confirm_edit">Confirmar nuevo apodo</string>
+    <string name="altura">AL </string>
+    <string name="peso">PE </string>
+    <string name="numero">No. </string>
+    <string name="tipo">Tipo: </string>
+    <string name="modificar">Cambiar apodo</string>
+    <string name="remover">Quitar</string>
+</resources>

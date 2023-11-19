@@ -9,10 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.friadenrich.pokemon.R;
-import com.friadenrich.pokemon.model.Pokedex;
+import com.friadenrich.pokemon.helper.SPHelper;
 import com.friadenrich.pokemon.model.Pokemon;
-import com.friadenrich.pokemon.pokedex.IOnPokedexClick;
-import com.friadenrich.pokemon.pokedex.PokedexViewHolder;
 
 import java.util.List;
 
@@ -48,6 +46,8 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonViewHolder> {
 
     public void removeItem(int position) {
         pokemones.remove(position);
+        SPHelper.actualizarListaGuardada(pokemones);
         notifyItemRemoved(position);
+        notifyItemRangeRemoved(position, 5 -position);
     }
 }

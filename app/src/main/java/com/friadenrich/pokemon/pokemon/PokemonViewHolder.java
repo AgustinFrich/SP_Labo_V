@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.friadenrich.pokemon.R;
-import com.friadenrich.pokemon.pokedex.IOnPokedexClick;
 
 public class PokemonViewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener {
     public TextView tv_nombre;

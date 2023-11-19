@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.friadenrich.pokemon.R;
 import com.friadenrich.pokemon.model.Pokedex;
-import com.friadenrich.pokemon.model.Pokemon;
+
 
 import java.util.List;
 

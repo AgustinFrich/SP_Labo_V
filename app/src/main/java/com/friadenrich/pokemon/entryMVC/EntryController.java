@@ -7,18 +7,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.friadenrich.pokemon.R;
+import com.friadenrich.pokemon.helper.SPHelper;
 import com.friadenrich.pokemon.model.Pokemon;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class EntryController implements View.OnClickListener {
     private EntryView vista;
     private Activity ac;
-    // private EntryModel modelo;
     Pokemon modelo;
 
     public  EntryController(EntryView vista, Activity activity, Pokemon modelo) {
@@ -32,29 +27,10 @@ public class EntryController implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        // Guarda el pokemon en las shared preferences
-        SharedPreferences sp = ac.getSharedPreferences("Pokedex", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sp.edit();
-        String dexStr = sp.getString("Pokemones", "[]");
-
-        try {
-            JSONArray dexObj = new JSONArray(dexStr);
-
-            if(dexObj.length() < 6) {
-                JSONObject obj = modelo.pokemonAJson();
-                dexObj.put(obj);
-                // TODO STRING
-                showToast("Pokemon añadido al equipo");
-            } else {
-                // TODO STRING
-                showToast("Ha alcanzado el tamaño máximo de equipo");
-            }
-
-            editor.putString("Pokemones", dexObj.toString());
-            editor.apply();
-            Log.d("ASD", dexObj.length() + "");
-        } catch (Exception e){
-            Log.d("pok", "error");
+        if(SPHelper.aniadirPokemon(modelo)){
+                showToast(ac.getString(R.string.aniadido));
+        } else {
+                showToast(ac.getString(R.string.max_limit));
         }
     }
 

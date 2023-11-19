@@ -45,14 +45,17 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="20px"
-            android:text="MOD S"
-            android:id="@+id/team_rv_btn_mod"></Button>
+            android:text="@string/modificar"
+            android:id="@+id/team_rv_btn_mod"
+            ></Button>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="20px"
-            android:text="DEL S"
-            android:id="@+id/team_rv_btn_del"></Button>
+            android:text="@string/remover"
+            android:id="@+id/team_rv_btn_del"
+            android:backgroundTint="@android:color/holo_red_dark"
+            ></Button>
     </LinearLayout>
     <View
         android:layout_width="match_parent"

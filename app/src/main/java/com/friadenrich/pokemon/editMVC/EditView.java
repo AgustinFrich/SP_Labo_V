@@ -29,7 +29,7 @@ public class EditView {
         tv_id = this.ac.findViewById(R.id.edit_id);
 
         ed_nombre.setText(model.getName());
-        tv_id.setText("No. " + model.getId());
+        tv_id.setText(ac.getString(R.string.numero) + model.getId());
 
         iv_img.setImageBitmap(BitmapFactory.decodeByteArray(model.getSprite(), 0, model.getSprite().length));
 

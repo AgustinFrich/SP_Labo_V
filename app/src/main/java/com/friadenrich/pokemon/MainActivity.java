@@ -10,11 +10,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.util.Log;
+
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
+import com.friadenrich.pokemon.helper.SPHelper;
 import com.friadenrich.pokemon.model.Pokedex;
 import com.friadenrich.pokemon.pokedex.IOnPokedexClick;
 import com.friadenrich.pokemon.pokedex.PokedexAdapter;
@@ -24,11 +24,15 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements Handler.Callback, IOnPokedexClick {
     static List<Pokedex> pokedex;
+    SPHelper helper;
     RecyclerView rv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        helper = new SPHelper(this);
 
         // https://stackoverflow.com/questions/61023968/what-do-i-use-now-that-handler-is-deprecated
         Handler handler = new Handler(Looper.getMainLooper(), this);
@@ -70,7 +74,6 @@ public class MainActivity extends AppCompatActivity implements Handler.Callback,
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.menu_equipo) {
-            Log.d("ASDADAD", "ASD");
             Intent i = new Intent(this, TeamActivity.class);
             this.startActivity(i);
         }

@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.friadenrich.pokemon.editMVC.EditModel;
+import com.friadenrich.pokemon.helper.SPHelper;
 import com.friadenrich.pokemon.model.Pokemon;
 import com.friadenrich.pokemon.pokedex.PokedexAdapter;
 import com.friadenrich.pokemon.pokedex.PokedexHiloConexion;
@@ -23,6 +24,7 @@ import com.friadenrich.pokemon.pokemon.IOnPokemonClick;
 import com.friadenrich.pokemon.pokemon.PokemonAdapter;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -42,35 +44,22 @@ public class TeamActivity extends AppCompatActivity implements IOnPokemonClick {
         ActionBar actionBar = super.getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        SharedPreferences sp = getSharedPreferences("Pokedex", Context.MODE_PRIVATE);
-        String dexStr = sp.getString("Pokemones", "[]");
-        pokemones = new ArrayList<Pokemon>();
+        pokemones = SPHelper.getPokemones();
 
-        try {
-            JSONArray dexObj = new JSONArray(dexStr);
-            int size = dexObj.length();
-            for(int i = 0; i < size; i ++ ){
-                Pokemon p = Pokemon.jsonAPokemon(dexObj.getJSONObject(i));
-                pokemones.add(p);
-            }
+        rv = super.findViewById(R.id.team_rv);
 
-            rv = super.findViewById(R.id.team_rv);
+        LinearLayoutManager llm = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        rv.setLayoutManager(llm);
 
-            LinearLayoutManager llm = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-            rv.setLayoutManager(llm);
-
-            adapter = new PokemonAdapter(pokemones, this );
-            rv.setAdapter(adapter);
-        } catch (Exception e) {
-
-        }
+        adapter = new PokemonAdapter(pokemones, this );
+        rv.setAdapter(adapter);
     }
 
 
     @Override
     public void onPokemonClick(int buttonId, int index) {
         if(buttonId == R.id.team_rv_btn_del) {
-            removePokemon(index);
+            adapter.removeItem(index);
         } else if (buttonId == R.id.team_rv_btn_mod) {
             Intent i = new Intent(this, EditActivity.class);
             i.putExtra("posicion", index);
@@ -83,19 +72,15 @@ public class TeamActivity extends AppCompatActivity implements IOnPokemonClick {
         super.onPostResume();
 
         int pos = EditModel.posicion;
-        Log.d("pos", pos + "");
+
         if(pos >= 0){
-            SharedPreferences sp = getSharedPreferences("Pokedex", Context.MODE_PRIVATE);
-            String dexStr = sp.getString("Pokemones", "[]");
             try {
-                JSONArray dexObj = new JSONArray(dexStr);
-                Pokemon p = Pokemon.jsonAPokemon(dexObj.getJSONObject(pos));
+                Pokemon p = SPHelper.getUnPokemon(pos);
                 pokemones.set(pos, p);
                 adapter.notifyItemChanged(pos);
-            }catch (Exception e){
-
+            }catch (JSONException e){
+                e.printStackTrace();
             }
-
         }
     }
 
@@ -105,25 +90,5 @@ public class TeamActivity extends AppCompatActivity implements IOnPokemonClick {
             super.finish();
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    // TODO Mover metodo
-    private void removePokemon(int index) {
-
-        SharedPreferences sp = getSharedPreferences("Pokedex", Context.MODE_PRIVATE);
-        try {
-            adapter.removeItem(index);
-            JSONArray arr = new JSONArray();
-            for(Pokemon p: pokemones) {
-                arr.put(p.pokemonAJson());
-            }
-            SharedPreferences.Editor editor = sp.edit();
-
-            editor.putString("Pokemones", arr.toString());
-            editor.apply();
-
-        } catch (Exception e){
-
-        }
     }
 }
